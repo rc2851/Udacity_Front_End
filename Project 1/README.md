@@ -10,4 +10,4 @@ This project creates a portfolio web site using bootstrap.
 			* file
 
 <hr>
-![Movies Image](https://github.com/rc2851/Udacity_Front_end/blob/master/Project 1/Portfolio.jpg)
+![Movies Image](https://github.com/rc2851/Udacity_Front_end/blob/master/Project%201/Portfolio.jpg)
