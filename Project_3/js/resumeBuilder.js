@@ -29,7 +29,7 @@ var work = {
         "title": "Sanitation Supervisor",
         "location": "St Louis, MO",
         "dates": "1986 - June 2000",
-        "description": "Sanitation supervison."
+        "description": "Sanitation supervision."
     }]
 };
 
