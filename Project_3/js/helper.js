@@ -209,11 +209,16 @@ function initializeMap() {
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
-      locations.forEach(function(place){
+     locations.forEach(function(place){
       // the search request object
+	  if(place == undefined){
+		place = " ";
+	  };
       var request = {
         query: place
       };
+
+	  
 
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
