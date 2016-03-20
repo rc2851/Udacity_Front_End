@@ -17,7 +17,6 @@ $("#topContacts").append(formattedGitHub);
 $("#topContacts").append(formattedLocation);
 $("#header").append(formattedWelcomeMsg);
 
-
 var work = {
     "jobs": [{
         "employer": "Udacity",
@@ -52,14 +51,14 @@ var education = {
         "location": "Nashville, TN",
         "degree": "Associates",
         "majors": ["CompSci"],
-        "dates": 2000,
-        "url": "http://www.someschoolgames.com/"
+        "dates": "2000-2002",
+        "url": "http://example.com"
     }, {
         "name": "Vatterot",
         "location": "Nashville, TN",
         "degree": "Nanodegree",
         "majors": ["CompSci"],
-        "dates": 2000,
+        "dates": "1999-2000",
         "url": "http://example.com"
     }],
     "onLineCourses": [{
@@ -107,7 +106,6 @@ var projects = {
         ]
     }]
 };
-
 
 //Picture display
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
@@ -172,13 +170,11 @@ education.display = function() {
         $("#education").append(HTMLschoolStart);
 
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
-        $(".education-entry:last").append(formattedSchoolName);
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
 
         var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
         $(".education-entry:last").append(formattedSchoolLocation);
-
-        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-        $(".education-entry:last").append(formattedSchoolDegree);
 
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
         $(".education-entry:last").append(formattedSchoolDates);
@@ -188,8 +184,6 @@ education.display = function() {
 
         var formattedSchoolUrl = HTMLonlineURL.replace("%data%", education.schools[school].url);
         $(".education-entry:last").append(formattedSchoolUrl);
-		
-
     }
 }
 
