@@ -192,12 +192,12 @@ education.display = function() {
     }
 }
 
-//Call display work function
+//Display work function
 work.display();
-//Call display projects function
+//Display projects function
 //Display projects;
 projects.display();
 //Display education function
 education.display();
-//display mapp
+//Display map
 $("#mapDiv").append(googleMap);
