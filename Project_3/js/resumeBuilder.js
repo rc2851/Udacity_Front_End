@@ -33,7 +33,7 @@ var education = {
     "onlineCourses": [{
         "title": "JavaScript Syntax",
         "school": "Udacity",
-        "date": 2016,
+        "date": "2016",
         "url": "http:/www.udacity.com"
     }]
 };
@@ -79,12 +79,10 @@ var projects = {
     }]
 };
 
-//Picture display
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-$("#header").append(formattedBioPic);
-
-//Skills display
+//Bio
 bio.display = function() {	
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+	$("#header").append(formattedBioPic);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").prepend(formattedRole);
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -116,7 +114,7 @@ bio.display = function() {
 	}
 }
 
-//Work display
+//Work
 work.display = function() {
     if (work.jobs.length > 0) {
         for (job in work.jobs) {
@@ -135,7 +133,7 @@ work.display = function() {
     }
 };
 
-//Projects display
+//Projects
 projects.display = function() {
     //function displayProjects(){
     for (project in projects.projects) {
@@ -159,7 +157,7 @@ projects.display = function() {
     }
 }
 
-//Education display
+//Education
 education.display = function() {
     for (school in education.schools) {
 
@@ -195,12 +193,11 @@ education.display = function() {
 	}
 }
 
-//Display bio
+//Display bio function
 bio.display();
 //Display work function
 work.display();
 //Display projects function
-//Display projects;
 projects.display();
 //Display education function
 education.display();
