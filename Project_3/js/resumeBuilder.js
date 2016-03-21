@@ -34,7 +34,7 @@ var education = {
         "title": "JavaScript Syntax",
         "school": "Udacity",
         "date": "2016",
-        "url": "http:/www.udacity.com"
+        "url": "http://www.udacity.com"
     }]
 };
 
