@@ -182,6 +182,18 @@ education.display = function() {
         var formattedSchoolUrl = HTMLonlineURL.replace("%data%", education.schools[school].url);
         $(".education-entry:last").append(formattedSchoolUrl);
     }
+		
+	for (onLineCourse in education.onLineCourses) {
+		$("#education").append(HTMLschoolStart);
+		$(".education-entry:last").append(HTMLonlineClasses);
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onLineCourses[onLineCourse].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onLineCourses[onLineCourse].school);
+		$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+		var formattedOnlineDate = HTMLonlineDates.replace("%data%", education.onLineCourses[onLineCourse].date);
+		$(".education-entry:last").append(formattedOnlineDate);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onLineCourses[onLineCourse].url);
+		$(".education-entry:last").append(formattedOnlineURL);
+	}
 }
 
 //Display bio
