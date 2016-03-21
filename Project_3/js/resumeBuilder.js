@@ -16,6 +16,10 @@ $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGitHub);
 $("#topContacts").append(formattedLocation);
 $("#header").append(formattedWelcomeMsg);
+$("#footerContacts").append(formattedMobile);
+$("#footerContacts").append(formattedEmail);
+$("#footerContacts").append(formattedGitHub);
+$("#footerContacts").append(formattedLocation);
 
 var work = {
     "jobs": [{
@@ -51,29 +55,31 @@ var education = {
     }],
     "onLineCourses": [{
         "title": "JavaScript Syntax",
-		"location": "St. Louis, MO",
         "school": "Udacity",
-        "dates": 2016,
+        "date": 2016,
         "url": "http:/www.udacity.com"
     }]
 };
 
 var bio = {
-    name: "Robert Cannon",
-    role: "Professional Application Developer",
-    welcomeMessage: "welcome message here",
-    contacts: {
+    "name": "Robert Cannon",
+    "role": "Professional Application Developer",
+    "contacts": {
         "mobile": "6185555555",
-        "email": "email@email.com"
+        "email": "email@email.com",
+		"github": "na",
+		"twitter": "na",
+		"location": "St. Louis, MO"
     },
-    skills: [
+    "welcomeMessage": "welcome message here",
+    "skills": [
         "Java",
         "JavaScript",
         "Perl",
         "VBA",
         "SQL"
     ],
-    bioPic: "images/fry.jpg"
+    "bioPic": "images/fry.jpg"
 }
 
 var projects = {
@@ -101,13 +107,16 @@ var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedBioPic);
 
 //Skills display
-if (bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-    for (i = 0; i < bio.skills.length; i++) {
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
-        $("#skills").append(formattedSkill);
-    }
-};
+bio.display = function() {		
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		for (i = 0; i < bio.skills.length; i++) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+			$("#skills").append(formattedSkill);
+		}
+	}
+}
+
 
 //Work display
 work.display = function() {
@@ -176,6 +185,8 @@ education.display = function() {
     }
 }
 
+//Display bio
+bio.display();
 //Display work function
 work.display();
 //Display projects function
