@@ -21,13 +21,13 @@ var work = {
     "jobs": [{
         "employer": "AT&T",
         "title": "Sr. Application Developer",
-        "location": "St Louis, MO",
+        "location": "St. Louis, MO",
         "dates": "June 2000 - Current",
         "description": "Application developer."
     }, {
         "employer": "Pillsbury",
         "title": "Sanitation Supervisor",
-        "location": "St Louis, MO",
+        "location": "St. Louis, MO",
         "dates": "1986 - June 2000",
         "description": "Sanitation supervision."
     }]
@@ -35,22 +35,23 @@ var work = {
 
 var education = {
     "schools": [{
-        "name": "Echard College",
-        "location": "Nashville, TN",
+        "name": "Vatterott College",
+        "location": "St. Louis, MO",
         "degree": "Associates",
         "majors": ["CompSci"],
         "dates": "2000-2002",
         "url": "http://example.com"
     }, {
-        "name": "Vatterot",
-        "location": "Nashville, TN",
-        "degree": "Nanodegree",
+        "name": "Collinsville High School",
+        "location": "Collinsville, Il",
+        "degree": "High School Diploma",
         "majors": ["CompSci"],
-        "dates": "1999-2000",
+        "dates": "1981-1985",
         "url": "http://example.com"
     }],
     "onLineCourses": [{
         "title": "JavaScript Syntax",
+		"location": "St. Louis, MO",
         "school": "Udacity",
         "dates": 2016,
         "url": "http:/www.udacity.com"
