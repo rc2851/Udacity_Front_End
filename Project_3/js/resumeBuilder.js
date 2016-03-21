@@ -1,25 +1,12 @@
 var formattedName = HTMLheaderName.replace("%data%", "Robert Cannon");
 var formattedRole = HTMLheaderRole.replace("%data%", "Professional Application Developer");
 var formattedContactGeneric = HTMLcontactGeneric.replace("%data%", "314-555-5555");
-var formattedMobile = HTMLmobile.replace("%data%", "618-555-5555");
-var formattedEmail = HTMLemail.replace("%data%", "Robert@example.com");
-var formattedTwitter = HTMLtwitter.replace("%data%", "@robert");
-var formattedGitHub = HTMLgithub.replace("%data%", "rc2851");
 var formattedBlog = HTMLblog.replace("%data%", "blog");
-var formattedLocation = HTMLlocation.replace("%data%", "St. Louis, MO");
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", "Welcome to my resume.");
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedGitHub);
-$("#topContacts").append(formattedLocation);
 $("#header").append(formattedWelcomeMsg);
-$("#footerContacts").append(formattedMobile);
-$("#footerContacts").append(formattedEmail);
-$("#footerContacts").append(formattedGitHub);
-$("#footerContacts").append(formattedLocation);
 
 var work = {
     "jobs": [{
@@ -67,8 +54,8 @@ var bio = {
     "contacts": {
         "mobile": "6185555555",
         "email": "email@email.com",
-		"github": "na",
-		"twitter": "na",
+		"github": "rc2851",
+		"twitter": "twitter@example",
 		"location": "St. Louis, MO"
     },
     "welcomeMessage": "welcome message here",
@@ -107,7 +94,25 @@ var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedBioPic);
 
 //Skills display
-bio.display = function() {		
+bio.display = function() {	
+
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);	
+		$("#topContacts").append(formattedMobile);
+		$("#footerContacts").append(formattedMobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		$("#topContacts").append(formattedEmail);
+		$("#footerContacts").append(formattedEmail);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		$("#topContacts").append(formattedTwitter);
+		$("#footerContacts").append(formattedTwitter);
+		var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+		$("#topContacts").append(formattedGitHub);
+		$("#footerContacts").append(formattedGitHub);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		$("#topContacts").append(formattedLocation);
+		$("#footerContacts").append(formattedLocation);		
+
+	
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 		for (i = 0; i < bio.skills.length; i++) {
