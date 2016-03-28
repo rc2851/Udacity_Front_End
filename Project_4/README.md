@@ -10,7 +10,7 @@
 	
 ### Game objective:
 	Move the player up to the water without being hit by the enemy bugs. 
-	Get as many points as possible withing 1 minute.
+	Get as many points as possible within 1 minute.
 	
 ### Game details:
 	Player can move up, down, left, right.
@@ -19,4 +19,7 @@
 	One point is lost each time the player is hit by the enemy bug.
 	Player is reset to the start position when hit by the enemy bug.
 	With each lap, the enemy bug speed increase.
+
+<hr>
+![Game Image](https://github.com/rc2851/Udacity_Front_End/blob/master/Project_4/images/Game_image.PNG)
 	
