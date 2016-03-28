@@ -18,7 +18,8 @@
 	Player is reset to the start position when making it to the water.
 	One point is lost each time the player is hit by the enemy bug.
 	Player is reset to the start position when hit by the enemy bug.
-	With each lap, the enemy bug speed increase.
+	With each lap, the enemy bug speed increases.
 
 <hr>
-![Game Image](https://github.com/rc2851/Udacity_Front_End/blob/master/Project_4/images/Game_image.JPG)
+![Game Image](https://github.com/rc2851/Udacity_Front_End/blob/master/Project_4/images/Game_image.PNG)
+	

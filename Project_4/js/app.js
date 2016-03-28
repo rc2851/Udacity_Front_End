@@ -1,20 +1,20 @@
 
 //Constants
 var constants = {
-		PLAYER_START_X : 200,         //Player starting position X axis
-		PLAYER_START_Y : 320,         //Player starting position Y axis
-		PLAYER_MOVE_Y : 82,           //Player pixel movement Y axis
-		PLAYER_MOVE_X : 100,          //Player pixel movement X axis
-		PLAYER_MOVE_MAX : 420,        //Player maximum pixel movement
-		PLAYER_MOVE_MIN : -20,        //Player minimum pixel movement
-		ENEMY_COUNT : 4,	          //Number of enemies
-		ENEMY_SPEED_INCREASE : 1.08,  //Increase enemy speed on each lap
-		ENEMY_ROW_1 : 60,             //Enemy row 1 Y axis value
-		ENEMY_ROW_2 : 145,            //Enemy row 2 Y axis value
-		ENEMY_ROW_3 : 230,            //Enemy row 3 Y axis value
-		WATER_SCORE : 1,              //Change score value when player reaches water
-		COLLISION_SCORE : -1,         //Change score value when player has a collision with the enemy
-		GAME_TIME : 1                 //Game time in minutes
+	PLAYER_START_X : 200,         //Player starting position X axis
+	PLAYER_START_Y : 320,         //Player starting position Y axis
+	PLAYER_MOVE_Y : 82,           //Player pixel movement Y axis
+	PLAYER_MOVE_X : 100,          //Player pixel movement X axis
+	PLAYER_MOVE_MAX : 420,        //Player maximum pixel movement
+	PLAYER_MOVE_MIN : -20,        //Player minimum pixel movement
+	ENEMY_COUNT : 4,	          //Number of enemies
+	ENEMY_SPEED_INCREASE : 1.08,  //Increase enemy speed on each lap
+	ENEMY_ROW_1 : 60,             //Enemy row 1 Y axis value
+	ENEMY_ROW_2 : 145,            //Enemy row 2 Y axis value
+	ENEMY_ROW_3 : 230,            //Enemy row 3 Y axis value
+	WATER_SCORE : 1,              //Change score value when player reaches water
+	COLLISION_SCORE : -1,         //Change score value when player has a collision with the enemy
+	GAME_TIME : 1                 //Game time in minutes
 };
 
 //Enemies our player must avoid
