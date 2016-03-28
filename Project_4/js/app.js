@@ -1,3 +1,5 @@
+"use strict";
+
 //Constants
 var constants = {
     PLAYER_START_X: 200, //Player starting position X axis
@@ -8,6 +10,7 @@ var constants = {
     PLAYER_MOVE_MIN: -20, //Player minimum pixel movement
     ENEMY_COUNT: 4, //Number of enemies
     ENEMY_SPEED_INCREASE: 1.08, //Increase enemy speed on each lap
+    ENEMY_START_LINE: -100, //Starting position X axis for enemy
     ENEMY_ROW_1: 60, //Enemy row 1 Y axis value
     ENEMY_ROW_2: 145, //Enemy row 2 Y axis value
     ENEMY_ROW_3: 230, //Enemy row 3 Y axis value
@@ -25,7 +28,7 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     //Set enemy start position 
-    this.x = -100;
+    this.x = constants.ENEMY_START_LINE;
     //Set enemy spped
     this.speed = Math.floor((Math.random() * 100) + 10);
 };
@@ -42,7 +45,7 @@ Enemy.prototype.update = function(dt) {
         //Change enemy speed
         this.speed = this.speed * constants.ENEMY_SPEED_INCREASE;
         //move enemy back to the left side
-        this.x = -100;
+        this.x = constants.ENEMY_START_LINE;
     };
 };
 
@@ -62,11 +65,12 @@ Enemy.prototype.render = function() {
 
 //Array for enemies
 var allEnemies = [];
+//Number of enemies
+var totalEnemies = constants.ENEMY_COUNT;
 
 //Instantiate enemy
-for (i = 1; i <= constants.ENEMY_COUNT; i++) {
+for (var i = 1; i <= totalEnemies; i++) {
     var enemy = new Enemy("killer" + i);
-
     //Set row for instantiated enemy 
     switch (i) {
         case 1:
@@ -80,7 +84,7 @@ for (i = 1; i <= constants.ENEMY_COUNT; i++) {
             break;
         case 4:
             enemy.y = constants.ENEMY_ROW_1;
-    }
+    };
     //Put enemy in array
     allEnemies.push(enemy);
 };
@@ -89,6 +93,8 @@ for (i = 1; i <= constants.ENEMY_COUNT; i++) {
 function Player(name) {
     this.name = name;
     this.sprite = 'images/char-boy.png';
+    this.x = null;
+    this.y = null;
     this.moveToX = constants.PLAYER_START_X;
     this.moveToY = constants.PLAYER_START_Y;
     this.isPlaying = 'true';
@@ -104,8 +110,6 @@ Player.prototype.update = function() {
     this.y = this.moveToY;
 };
 
-//Score element
-var playerScore = window.document.getElementById("points");
 
 //Render player using x and y coordinates
 Player.prototype.render = function() {
@@ -113,18 +117,21 @@ Player.prototype.render = function() {
     //Check if player made it to the water
     if (this.y < constants.ENEMY_ROW_1) {
         //Player scored, move player back to start position
-        //setTimeout(player.reset, 3000);
-        player.reset();
+        this.moveToStart();
         //Increase score
-        player.score(constants.WATER_SCORE);
+        this.score(constants.WATER_SCORE);
     };
 };
 
-Player.prototype.reset = function() {
+//Move player to start position
+Player.prototype.moveToStart = function() {
     //Reset player to start position
-    player.moveToX = constants.PLAYER_START_X;
-    player.moveToY = constants.PLAYER_START_Y;
+    this.moveToX = constants.PLAYER_START_X;
+    this.moveToY = constants.PLAYER_START_Y;
 };
+
+//Score element
+var playerScore = window.document.getElementById("points");
 
 Player.prototype.score = function(scoreValue) {
     //Change player score
@@ -132,25 +139,52 @@ Player.prototype.score = function(scoreValue) {
 };
 
 //Stop the game, player clicked stop button
-player.stop = function() {
-    player.isPlaying = 'false';
+Player.prototype.stop = function() {
     //Stop timer
     clearInterval(gameTime);
     displayCountDown.textContent = "";
-    //Display game terminated
-    timerDiv.textContent = "GAME TERMINATED";
+    //Display game stopped
+    timerDiv.textContent = "GAME STOPPED";
+    this.isPlaying = 'false';
     //Reset player to start position
-    player.reset();
+    this.moveToStart();
 };
 
 //Start the game, player clicked start button
-player.start = function() {
+Player.prototype.start = function() {
     //reload the page
     window.location.reload();
 };
 
+//Collision check
+function collisionCheck() {
+    //check each enemy for collision with player
+    allEnemies.forEach(function(enemy) {
+        if (Math.abs(enemy.x - player.x) < 75 && Math.abs(enemy.y - player.y) < 50) {
+            //Collision event, Reset player to start position
+            player.moveToStart();
+            //Decrease player score
+            player.score(constants.COLLISION_SCORE);
+        };
+    });
+};
+
+// This listens for key presses and sends the keys to your
+// Player.handleInput() method. You don't need to modify this.
+document.addEventListener('keyup', function(e) {
+    var allowedKeys = {
+        27: 'esc',
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+    };
+
+    player.handleInput(allowedKeys[e.keyCode]);
+});
+
 //Change player coordinate based on key pressed, esc key terminates the game
-player.handleInput = function(key) {
+Player.prototype.handleInput = function(key) {
     switch (key) {
         case "left":
             //Move player cooridinated left one block
@@ -162,7 +196,7 @@ player.handleInput = function(key) {
             //Move player cooridinated up one block
             if ((this.y - constants.PLAYER_MOVE_Y) >= constants.PLAYER_MOVE_MIN) {
                 this.moveToY = this.y - constants.PLAYER_MOVE_Y;
-            }
+            };
             break;
         case "right":
             //Move player cooridinated right one block
@@ -178,22 +212,14 @@ player.handleInput = function(key) {
             break;
         case "esc":
             //Terminate the game
-            player.stop();
-    }
+            this.stop();
+    };
 };
 
-//Collision check
-Player.collisionCheck = function() {
-    //check each enemy for collision with player
-    allEnemies.forEach(function(enemy) {
-        if (Math.abs(enemy.x - player.x) < 75 && Math.abs(enemy.y - player.y) < 50) {
-            //Collision event, Reset player to start position
-            player.reset();
-            //Decrease player score
-            player.score(constants.COLLISION_SCORE);
-        };
-    });
-};
+//Element that displays time left
+var displayCountDown = document.querySelector("#time");
+var timerDiv = document.querySelector("#timer");
+var gameTime = null;
 
 //Start game count down
 function startCountDown(duration, displayCountDown) {
@@ -237,23 +263,6 @@ function startCountDown(duration, displayCountDown) {
 window.onload = function() {
     //Set game time in variable
     var gameMinutes = 60 * constants.GAME_TIME;
-    //Element that displays time left
-    displayCountDown = document.querySelector("#time");
-    timerDiv = document.querySelector("#timer");
     //Start count down
     startCountDown(gameMinutes, displayCountDown);
 };
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        27: 'esc',
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down',
-    };
-
-    player.handleInput(allowedKeys[e.keyCode]);
-});
