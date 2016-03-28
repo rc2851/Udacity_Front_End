@@ -21,5 +21,5 @@
 	With each lap, the enemy bug speed increases.
 
 <hr>
-![Game Image](https://github.com/rc2851/Udacity_Front_End/blob/master/Project_4/images/Game_image.PNG)
+![Game Image](https://github.com/rc2851/Udacity_Front_End/blob/master/Project_4/images/Game_image.JPG)
 	
