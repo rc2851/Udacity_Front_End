@@ -230,16 +230,12 @@ function startCountDown(duration, displayCountDown) {
         //Add leading zero if minutes less than 10
         if (minutes < 10) {
             minutes = "0" + minutes;
-        } else {
             //minutes = minutes < 10 ? "0" + minutes : minutes;
-            minutes = minutes
         };
         //Add leading zero if seconds is less than 10
         if (seconds < 10) {
             seconds = "0" + seconds;
-        } else {
             //seconds = seconds < 10 ? "0" + seconds : seconds;
-            seconds = seconds
         };
         //Display time left
         displayCountDown.textContent = minutes + ":" + seconds;
