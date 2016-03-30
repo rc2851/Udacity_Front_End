@@ -46,8 +46,7 @@ Enemy.prototype.update = function(dt) {
         this.speed = this.speed * constants.ENEMY_SPEED_INCREASE;
         //move enemy back to the left side
         this.x = constants.ENEMY_START_LINE;
-    };
-};
+    }};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -84,10 +83,10 @@ for (var i = 1; i <= totalEnemies; i++) {
             break;
         case 4:
             enemy.y = constants.ENEMY_ROW_1;
-    };
+    }
     //Put enemy in array
     allEnemies.push(enemy);
-};
+}
 
 //Player class
 function Player(name) {
@@ -99,7 +98,7 @@ function Player(name) {
     this.moveToY = constants.PLAYER_START_Y;
     this.isPlaying = 'true';
     //console.log("Player name: " + this.name);
-};
+}
 
 //Instantiate player
 var player = new Player("player1");
@@ -120,7 +119,7 @@ Player.prototype.render = function() {
         this.moveToStart();
         //Increase score
         this.score(constants.WATER_SCORE);
-    };
+    }
 };
 
 //Move player to start position
@@ -165,9 +164,9 @@ function collisionCheck() {
             player.moveToStart();
             //Decrease player score
             player.score(constants.COLLISION_SCORE);
-        };
+        }
     });
-};
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -190,30 +189,30 @@ Player.prototype.handleInput = function(key) {
             //Move player cooridinated left one block
             if ((this.x - constants.PLAYER_MOVE_X) >= constants.PLAYER_MOVE_MIN) {
                 this.moveToX = this.x - constants.PLAYER_MOVE_X;
-            };
+            }
             break;
         case "up":
             //Move player cooridinated up one block
             if ((this.y - constants.PLAYER_MOVE_Y) >= constants.PLAYER_MOVE_MIN) {
                 this.moveToY = this.y - constants.PLAYER_MOVE_Y;
-            };
+            }
             break;
         case "right":
             //Move player cooridinated right one block
             if ((this.x + constants.PLAYER_MOVE_X) <= constants.PLAYER_MOVE_MAX) {
                 this.moveToX = this.x + constants.PLAYER_MOVE_X;
-            };
+            }
             break;
         case "down":
             //Move player cooridinated down one block
             if ((this.y + constants.PLAYER_MOVE_Y) <= constants.PLAYER_MOVE_MAX) {
                 this.moveToY = this.y + constants.PLAYER_MOVE_Y;
-            };
+            }
             break;
         case "esc":
             //Terminate the game
             this.stop();
-    };
+    }
 };
 
 //Element that displays time left
@@ -231,12 +230,12 @@ function startCountDown(duration, displayCountDown) {
         if (minutes < 10) {
             minutes = "0" + minutes;
             //minutes = minutes < 10 ? "0" + minutes : minutes;
-        };
+        }
         //Add leading zero if seconds is less than 10
         if (seconds < 10) {
             seconds = "0" + seconds;
             //seconds = seconds < 10 ? "0" + seconds : seconds;
-        };
+        }
         //Display time left
         displayCountDown.textContent = minutes + ":" + seconds;
 
@@ -249,7 +248,7 @@ function startCountDown(duration, displayCountDown) {
             //Display game over
             displayCountDown.textContent = "";
             timerDiv.textContent = "GAME OVER";
-        };
+        }
         //Decrement timer
         timer = timer - 1;
 
