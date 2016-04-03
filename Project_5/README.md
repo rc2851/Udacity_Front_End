@@ -9,7 +9,7 @@
 
     I am gettin 90/100 Speed on PageSpeed Insights.
 
-The code being used on http://rc2851.github.io/ is the same code in the prod folder.
+#### The code being used on http://rc2851.github.io/ is the same code in the prod folder.
     1. The images have been compressed
     2. Set Analytics.js to async
     3. CSS is now in the HTML files to prevent render blocking
