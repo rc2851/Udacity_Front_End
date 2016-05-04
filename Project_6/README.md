@@ -3,9 +3,10 @@
 	This project uses ajax to pull third party locations from Foursquare.
 	The locations are Metrolink station in Illinois.
 
-### Getting started
+### Click the link below to run
 
-#### Enter http://rc2851.github.io/ 
+#### https://rc2851.github.io/Project_6/index.html
+
 	
 
 
