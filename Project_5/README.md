@@ -1,6 +1,5 @@
 ## Website Performance Optimization portfolio project
 
-
 ### Getting started
 
 #### Open https://developers.google.com/speed/pagespeed/insights/
