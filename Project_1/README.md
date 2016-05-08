@@ -1,4 +1,4 @@
-## Project 1 - Build a Portfolio Site
+## Project 1 - Build a Portfolio Site 
 
 This project creates a web site using bootstrap that display images and information pertaining to landmarks.
 
